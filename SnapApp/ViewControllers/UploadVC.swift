@@ -22,6 +22,9 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     @IBAction func uploadClicked(_ sender: Any) {
         
+        
+        //STORAGE
+            
         let storage = Storage.storage()
         let storageReference = storage.reference()
         //görselleri koyacağımız klasörü oluşturuyoruz
@@ -35,17 +38,53 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                     imageReference.downloadURL { (url, error) in
                         if error == nil{
                             let imageUrl  = url?.absoluteString
+                            
+                            //FIRESTORE
+                            
                             let firestore = Firestore.firestore()
-                            let snapDictionary =  ["imageUrl": imageUrl, "snapOwner": UserSingleton.sharedUserInfo.username, "date": FieldValue.serverTimestamp()] as [String: Any]
-                            firestore.collection("Snaps").addDocument(data: snapDictionary) { (error) in
-                                if error == nil{
-                                    self.tabBarController?.selectedIndex = 0
-                                    self.imageView.image = UIImage(named: "click")
-                                }
-                                else{
+                            
+                            //snapOwner'ın daha önce kaydettiği snapleri var mı onu kontrol ediyoruz
+                            firestore.collection("Snaps").whereField("snapOwner", isEqualTo: UserSingleton.sharedUserInfo.username).getDocuments { (snapshot, error) in
+                                if error != nil {
                                     self.makeAlert(title: "error", message: error!.localizedDescription)
+
+                                }
+                                //snapOwner'ın daha önce kaydettiği başka bi döküman varsa o dökümanı alıp içerisine yeni gönderilen imageUrl'i ekliyoruz
+                                else{
+                                    if snapshot?.isEmpty == false && snapshot != nil{
+                                        for document in snapshot!.documents{
+                                            let documentId = document.documentID
+                                            if var imageUrlArray = document.get("imageUrlArray") as? [String]{
+                                                imageUrlArray.append(imageUrl!)
+                                                
+                                                let additionalDictionary = ["imageUrlArray" : imageUrlArray] as [String: Any]
+                                                //yeni eklenen imageurl'i ekliyoruz
+                                                //merge: eski değerleri tut ve üzerine ekle
+                                                firestore.collection("Snaps").document(documentId).setData(additionalDictionary, merge: true) { (error) in
+                                                    if error == nil{
+                                                        self.tabBarController?.selectedIndex = 0
+                                                        self.imageView.image = UIImage(named: "click")
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else{
+                                        let snapDictionary =  ["imageUrlArray": [imageUrl!], "snapOwner": UserSingleton.sharedUserInfo.username, "date": FieldValue.serverTimestamp()] as [String: Any]
+                                        firestore.collection("Snaps").addDocument(data: snapDictionary) { (error) in
+                                            if error == nil{
+                                                self.tabBarController?.selectedIndex = 0
+                                                self.imageView.image = UIImage(named: "click")
+                                            }
+                                            else{
+                                                self.makeAlert(title: "error", message: error!.localizedDescription)
+                                            }
+                                        }
+                                    }
                                 }
                             }
+                            
+                            
                         }
                     }
                 }
