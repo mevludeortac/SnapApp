@@ -89,7 +89,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PQ9-b8-lNv">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="click" translatesAutoresizingMaskIntoConstraints="NO" id="PQ9-b8-lNv">
                                 <rect key="frame" x="54" y="109" width="307" height="469"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -98,6 +98,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="uploadClicked:" destination="uP4-Xj-ceF" eventType="touchUpInside" id="e05-Yx-zSY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HRX-G0-kVb"/>
@@ -106,6 +109,9 @@
                     <tabBarItem key="tabBarItem" title="Upload" image="arrow.up.bin.fill" catalog="system" id="NOA-kw-1qU">
                         <color key="badgeColor" systemColor="systemOrangeColor"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="imageView" destination="PQ9-b8-lNv" id="ws0-r4-Vdc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lw-nr-L7t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,10 +143,13 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="arrow.up.right" catalog="system" id="GdC-tI-8cz">
                         <color key="badgeColor" systemColor="systemOrangeColor"/>
                     </tabBarItem>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toSignInVC" modalPresentationStyle="fullScreen" id="Q8h-2c-OYo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfa-hB-bXj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576.8115942028987" y="1044.6428571428571"/>
+            <point key="canvasLocation" x="1577" y="1075"/>
         </scene>
         <!--Feed-->
         <scene sceneID="yZf-tF-HLq">
@@ -207,7 +216,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="bsN-FB-STe">
             <objects>
-                <tabBarController id="Bir-ZV-uBB" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="Bir-ZV-uBB" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ne4-jr-qRp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -227,6 +236,7 @@
     <resources>
         <image name="arrow.up.bin.fill" catalog="system" width="128" height="93"/>
         <image name="arrow.up.right" catalog="system" width="128" height="112"/>
+        <image name="click" width="750" height="748"/>
         <image name="f.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -16,6 +16,7 @@
 		FC8C3F3D2770D8FE005103E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC8C3F3C2770D8FE005103E6 /* Assets.xcassets */; };
 		FC8C3F402770D8FE005103E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8C3F3E2770D8FE005103E6 /* LaunchScreen.storyboard */; };
 		FC9EEFB52773CDF100F4DFC2 /* SnapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9EEFB42773CDF100F4DFC2 /* SnapVC.swift */; };
+		FCAB8820277CA73A00ECCEDB /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAB881F277CA73A00ECCEDB /* UserSingleton.swift */; };
 		FCDAF0C42773768B004AD6AF /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDAF0C32773768B004AD6AF /* FeedVC.swift */; };
 		FCDAF0C72773769D004AD6AF /* UploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDAF0C62773769D004AD6AF /* UploadVC.swift */; };
 		FCDAF0C9277376B0004AD6AF /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDAF0C8277376B0004AD6AF /* SettingsVC.swift */; };
@@ -35,6 +36,7 @@
 		FC8C3F3F2770D8FE005103E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC8C3F412770D8FE005103E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC9EEFB42773CDF100F4DFC2 /* SnapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapVC.swift; sourceTree = "<group>"; };
+		FCAB881F277CA73A00ECCEDB /* UserSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		FCDAF0C32773768B004AD6AF /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		FCDAF0C62773769D004AD6AF /* UploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVC.swift; sourceTree = "<group>"; };
 		FCDAF0C8277376B0004AD6AF /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		FC8C3F322770D8EA005103E6 /* SnapApp */ = {
 			isa = PBXGroup;
 			children = (
+				FCAB8805277CA69B00ECCEDB /* Models */,
 				FCDAF0CA277376B4004AD6AF /* Delegates */,
 				FCDAF0C22773765F004AD6AF /* ViewControllers */,
 				FC8C3F392770D8EA005103E6 /* Main.storyboard */,
@@ -99,6 +102,14 @@
 				FC8C3F412770D8FE005103E6 /* Info.plist */,
 			);
 			path = SnapApp;
+			sourceTree = "<group>";
+		};
+		FCAB8805277CA69B00ECCEDB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FCAB881F277CA73A00ECCEDB /* UserSingleton.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FCDAF0C22773765F004AD6AF /* ViewControllers */ = {
@@ -237,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCAB8820277CA73A00ECCEDB /* UserSingleton.swift in Sources */,
 				FCDAF0C42773768B004AD6AF /* FeedVC.swift in Sources */,
 				FC8C3F382770D8EA005103E6 /* SignIn.swift in Sources */,
 				FC8C3F342770D8EA005103E6 /* AppDelegate.swift in Sources */,
