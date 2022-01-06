@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7AC921791B034B59DD9FD24B /* Pods_SnapApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C53F2FC7A0583468487A4 /* Pods_SnapApp.framework */; };
 		FC8026252773445900748ED3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC8026242773445900748ED3 /* GoogleService-Info.plist */; };
+		FC827B84278761B700DE4C8B /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC827B83278761B600DE4C8B /* FeedCell.swift */; };
 		FC8C3F342770D8EA005103E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8C3F332770D8EA005103E6 /* AppDelegate.swift */; };
 		FC8C3F362770D8EA005103E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8C3F352770D8EA005103E6 /* SceneDelegate.swift */; };
 		FC8C3F382770D8EA005103E6 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8C3F372770D8EA005103E6 /* SignIn.swift */; };
@@ -27,6 +28,7 @@
 		497B662D5A8118CDA9458C40 /* Pods-SnapApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapApp.release.xcconfig"; path = "Target Support Files/Pods-SnapApp/Pods-SnapApp.release.xcconfig"; sourceTree = "<group>"; };
 		576C53F2FC7A0583468487A4 /* Pods_SnapApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8026242773445900748ED3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FC827B83278761B600DE4C8B /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		FC8C3F302770D8EA005103E6 /* SnapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8C3F332770D8EA005103E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC8C3F352770D8EA005103E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		FCDAF0C22773765F004AD6AF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FC827B83278761B600DE4C8B /* FeedCell.swift */,
 				FC8C3F372770D8EA005103E6 /* SignIn.swift */,
 				FCDAF0C32773768B004AD6AF /* FeedVC.swift */,
 				FCDAF0C62773769D004AD6AF /* UploadVC.swift */,
@@ -256,6 +259,7 @@
 				FC9EEFB52773CDF100F4DFC2 /* SnapVC.swift in Sources */,
 				FC8C3F362770D8EA005103E6 /* SceneDelegate.swift in Sources */,
 				FCDAF0C9277376B0004AD6AF /* SettingsVC.swift in Sources */,
+				FC827B84278761B700DE4C8B /* FeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
