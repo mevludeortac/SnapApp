@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7AC921791B034B59DD9FD24B /* Pods_SnapApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C53F2FC7A0583468487A4 /* Pods_SnapApp.framework */; };
+		FC32F2E72787749400B62829 /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32F2E62787749300B62829 /* Snap.swift */; };
 		FC8026252773445900748ED3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC8026242773445900748ED3 /* GoogleService-Info.plist */; };
 		FC827B84278761B700DE4C8B /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC827B83278761B600DE4C8B /* FeedCell.swift */; };
 		FC8C3F342770D8EA005103E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8C3F332770D8EA005103E6 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 		4661AEAB0C44A813D3A0A076 /* Pods-SnapApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapApp.debug.xcconfig"; path = "Target Support Files/Pods-SnapApp/Pods-SnapApp.debug.xcconfig"; sourceTree = "<group>"; };
 		497B662D5A8118CDA9458C40 /* Pods-SnapApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapApp.release.xcconfig"; path = "Target Support Files/Pods-SnapApp/Pods-SnapApp.release.xcconfig"; sourceTree = "<group>"; };
 		576C53F2FC7A0583468487A4 /* Pods_SnapApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC32F2E62787749300B62829 /* Snap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
 		FC8026242773445900748ED3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC827B83278761B600DE4C8B /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		FC8C3F302770D8EA005103E6 /* SnapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				FCAB881F277CA73A00ECCEDB /* UserSingleton.swift */,
+				FC32F2E62787749300B62829 /* Snap.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCAB8820277CA73A00ECCEDB /* UserSingleton.swift in Sources */,
+				FC32F2E72787749400B62829 /* Snap.swift in Sources */,
 				FCDAF0C42773768B004AD6AF /* FeedVC.swift in Sources */,
 				FC8C3F382770D8EA005103E6 /* SignIn.swift in Sources */,
 				FC8C3F342770D8EA005103E6 /* AppDelegate.swift in Sources */,
