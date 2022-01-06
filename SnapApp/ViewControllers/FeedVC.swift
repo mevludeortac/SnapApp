@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import SDWebImage
 
 class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
@@ -17,25 +18,29 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let fireStoreDatabase =  Firestore.firestore()
     //tableview içerisine alacağımızdan ötürü, içerisine snap objelerimizi koyacağımız bi dizi oluşturuyoruz.
     var snapArray = [Snap]()
+    var chosenSnap : Snap?
+    var timeLeft : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        
         getSnapsFromFirebase()
+        
         getUserInfo()
     }
  
     func getUserInfo(){
-        fireStoreDatabase.collection("UserInfo").whereField("email", isEqualTo: Auth.auth().currentUser?.email).getDocuments { (snapshot, error) in
+        fireStoreDatabase.collection("UserInfo").whereField("email", isEqualTo: Auth.auth().currentUser!.email!).getDocuments { (snapshot, error) in
             if error != nil{
-                self.makeAlert(title: "this is error alert", message: "check your info")
+                self.makeAlert(title: "this is error alert", message: error?.localizedDescription ?? "error")
             }else{
-                if snapshot?.isEmpty == true && snapshot == nil {
+                if snapshot?.isEmpty == false && snapshot != nil {
                     for document in snapshot!.documents{
                         if let username = document.get("username") as? String{
-                            UserSingleton.sharedUserInfo.email = (Auth.auth().currentUser?.email)!
+                            UserSingleton.sharedUserInfo.email = Auth.auth().currentUser!.email!
                             UserSingleton.sharedUserInfo.username = username
                             
                         }
@@ -57,6 +62,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FeedCell
         cell.usernameFeed.text = snapArray[indexPath.row].username
+        cell.imageViewFeed.sd_setImage(with: URL(string: snapArray[indexPath.row].imageUrlArray[0]))
         return cell
     }
     
@@ -75,7 +81,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         
                         let documentId = document.documentID
                         
-                        if let username = document.get("username") as? String{
+                        if let username = document.get("snapOwner") as? String{
                             if let imageUrlArray = document.get("imageUrlArray") as? [String]{
                                 if let date = document.get("date") as? Timestamp {
                                     //24 saatlik sayaç
@@ -85,17 +91,32 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                             self.fireStoreDatabase.collection("Snaps").document(documentId).delete()
                                         }else{
                                             //timeleft -> SnapVC
+                                            self.timeLeft = 24 - differenceHour
                                         }
                                     }
                                     
-                                    let snap = Snap(username: username, imageUrl: imageUrlArray, date: date.dateValue())
+                                    let snap = Snap(username: username, imageUrlArray: imageUrlArray, date: date.dateValue())
                                     self.snapArray.append(snap)
                                 }
                             }
                         }
                     }
+                    self.tableView.reloadData()
                 }
             }
         }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SnapVC" {
+            
+            //snapVC'de tanımlamamız gerekior
+            let destinationVC = segue.destination as! SnapVC
+            destinationVC.selectedSnap = chosenSnap
+            destinationVC.selectedTimeLeft = self.timeLeft
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        chosenSnap = self.snapArray[indexPath.row]
+        performSegue(withIdentifier: "toSnapVC", sender: nil)
     }
 }

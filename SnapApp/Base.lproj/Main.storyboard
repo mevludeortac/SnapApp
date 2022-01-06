@@ -215,7 +215,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="tableView" destination="tSs-9o-p9R" id="ZQ3-lG-noz"/>
-                        <segue destination="Pnc-L9-FTw" kind="show" id="lJa-cS-Gwj"/>
+                        <segue destination="Pnc-L9-FTw" kind="show" identifier="toSnapVC" id="lJa-cS-Gwj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NPG-Zx-Gfq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
