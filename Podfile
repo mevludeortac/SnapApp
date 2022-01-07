@@ -10,6 +10,9 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Core'
 pod 'Firebase/Storage'
 pod 'SDWebImage'
+pod 'ImageSlideshow', '~> 1.9.0'
+pod "ImageSlideshow/Kingfisher"
+
 
 
 

@@ -15,6 +15,7 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         imageView.isUserInteractionEnabled = true
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(chosePicture))
         imageView.addGestureRecognizer(gestureRecognizer)
@@ -104,7 +105,7 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        imageView.image = info[.originalImage] as! UIImage
+        imageView.image = info[.originalImage] as? UIImage
         self.dismiss(animated: true, completion: nil)
     }
     

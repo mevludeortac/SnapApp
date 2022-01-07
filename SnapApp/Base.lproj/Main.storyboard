@@ -170,8 +170,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="647"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygR-3I-OGg">
-                                                    <rect key="frame" x="161.5" y="11" width="91" height="26"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygR-3I-OGg">
+                                                    <rect key="frame" x="161.5" y="35" width="91" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="26" id="ZMT-21-Yfe"/>
+                                                        <constraint firstAttribute="width" constant="91" id="dqv-ud-abJ"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <color key="textColor" red="0.1068299789" green="0.50569955099999997" blue="0.21092525249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -204,10 +208,10 @@
                         <viewLayoutGuide key="safeArea" id="wb0-8D-9db"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tSs-9o-p9R" firstAttribute="bottom" secondItem="wb0-8D-9db" secondAttribute="bottom" id="CeR-mH-uq1"/>
-                            <constraint firstItem="tSs-9o-p9R" firstAttribute="top" secondItem="wb0-8D-9db" secondAttribute="top" id="HJW-Gw-XKd"/>
-                            <constraint firstItem="tSs-9o-p9R" firstAttribute="leading" secondItem="wb0-8D-9db" secondAttribute="leading" id="M8c-hl-rJT"/>
-                            <constraint firstItem="tSs-9o-p9R" firstAttribute="centerX" secondItem="8YA-Wg-qfW" secondAttribute="centerX" id="T0Q-ak-nEF"/>
+                            <constraint firstItem="tSs-9o-p9R" firstAttribute="bottom" secondItem="wb0-8D-9db" secondAttribute="bottom" id="3Rr-fs-cXU"/>
+                            <constraint firstItem="tSs-9o-p9R" firstAttribute="top" secondItem="wb0-8D-9db" secondAttribute="top" id="GNp-5M-YVP"/>
+                            <constraint firstItem="tSs-9o-p9R" firstAttribute="centerX" secondItem="8YA-Wg-qfW" secondAttribute="centerX" id="LFb-JW-NKB"/>
+                            <constraint firstItem="tSs-9o-p9R" firstAttribute="leading" secondItem="wb0-8D-9db" secondAttribute="leading" id="wwQ-me-y9h"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="f.circle" catalog="system" id="LW1-oA-VhA">
